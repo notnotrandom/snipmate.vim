@@ -26,6 +26,7 @@ fun snipMate#expandSnip(snip, col)
 
 	let line = getline(lnum)
 	let afterCursor = strpart(line, col - 1)
+	echom("foo " . afterCursor)
 	" Keep text after the cursor
 	if afterCursor != "\t" && afterCursor != ' '
 		let line = strpart(line, 0, col - 1)
@@ -67,7 +68,7 @@ fun snipMate#expandSnip(snip, col)
 		" Place cursor at end of snippet if no tab stop is given
 		let newlines = len(snipLines) - 1
 		call cursor(lnum + newlines, indent + len(snipLines[-1]) - len(afterCursor)
-					\ + (newlines ? 0: col - 1))
+					\ + (newlines ? 0: col - 1) - 2)
 	endif
 	return ''
 endf
