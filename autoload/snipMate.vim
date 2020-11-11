@@ -77,7 +77,7 @@ fun snipMate#expandSnip(snip, col)
 		" XXX see why the f*ck is this needed...
 		if indent > 1
 			call cursor(0, col('.')-indent/2-1)
-		fi
+		endif
 	endif
 	return ''
 endf
